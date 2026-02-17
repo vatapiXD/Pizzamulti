@@ -8,5 +8,21 @@ namespace Pizza
 {
 	internal class PizzaKemence
 	{
+		private SzinkronPuffer<Pizza> puffer;
+
+		public PizzaKemence(int meret)
+		{
+			puffer = new SzinkronPuffer<Pizza>(meret);
+		}
+
+		public void FeladPizza(Pizza p)
+		{
+			puffer.Hozzaad(p);
+		}
+
+		public Pizza KiveszPizza()
+		{
+			return puffer.Kivesz();
+		}
 	}
 }
